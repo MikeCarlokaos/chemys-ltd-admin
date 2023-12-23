@@ -1,5 +1,3 @@
-// crud-admin/server/src/app.js
-
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -28,8 +26,20 @@ mongoose.connect(
 );
 
 app.use("/api/auth", authRoutes);
-app.use("/api/auth/products", productRoutes); // Include the product routes
-app.use("/api/auth/shortages", shortageRoutes); // Include the product routes
+app.use("/api/auth/products", productRoutes);
+app.use("/api/auth/shortages", shortageRoutes);
+
+// Global error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Internal Server Error");
+});
+
+// Global unhandled promise rejection handler
+process.on("unhandledRejection", (reason, promise) => {
+  console.error("Unhandled Rejection at:", promise, "reason:", reason);
+  // Handle the error here or log it
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
