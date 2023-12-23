@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 5000;
 // Configure CORS to allow requests from your React app's domain
 const corsOptions = {
   origin: "https://chemyslimiteddemo-admin.onrender.com",
+  // origin: "http://localhost:5173",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
   optionsSuccessStatus: 204,
@@ -21,7 +22,7 @@ app.use(express.json());
 
 // mongoose.connect("mongodb://localhost:27017/crud_admin", {});
 mongoose.connect(
-  "mongodb+srv://kaosvioge:formentera1@chemys-admin-database.fz7jxky.mongodb.net/",
+  "mongodb+srv://kaosvioge:formentera1@chemys-admin-database.fz7jxky.mongodb.net/chemys-ltd",
   {}
 );
 
