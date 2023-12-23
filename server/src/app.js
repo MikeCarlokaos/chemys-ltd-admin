@@ -22,7 +22,7 @@ app.use(express.json());
 
 // mongoose.connect("mongodb://localhost:27017/crud_admin", {});
 mongoose.connect(
-  "mongodb+srv://kaosvioge:formentera1@chemys-admin-database.fz7jxky.mongodb.net/chemys-ltd",
+  "mongodb+srv://kaosvioge:formentera1@chemys-admin-database.fz7jxky.mongodb.net/?retryWrites=true&w=majority",
   {}
 );
 
