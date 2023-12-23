@@ -26,12 +26,8 @@ app.use(express.json());
 mongoose.connect(
   "mongodb+srv://kaosvioge:formentera1@chemys-admin-database.fz7jxky.mongodb.net/?retryWrites=true&w=majority",
   {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-    // Increase the timeout to allow for slower connections
-    serverSelectionTimeoutMS: 5000,
+    socketTimeoutMS: 30000,
+    connectTimeoutMS: 30000,
   }
 );
 
