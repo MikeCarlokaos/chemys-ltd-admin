@@ -10,7 +10,15 @@ const shortageRoutes = require("./routes/shortages");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors({ origin: "https://chemyslimiteddemo-admin.onrender.com" }));
+// Configure CORS to allow requests from your React app's domain
+const corsOptions = {
+  origin: "https://chemyslimiteddemo-admin.onrender.com",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 // mongoose.connect("mongodb://localhost:27017/crud_admin", {});
