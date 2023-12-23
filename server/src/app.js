@@ -1,3 +1,5 @@
+// crud-admin/server/src/app.js
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -11,7 +13,6 @@ const PORT = process.env.PORT || 5000;
 // Configure CORS to allow requests from your React app's domain
 const corsOptions = {
   origin: "https://chemyslimiteddemo-admin.onrender.com",
-  // origin: "http://localhost:5173",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
   optionsSuccessStatus: 204,
@@ -20,10 +21,18 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
-// mongoose.connect("mongodb://localhost:27017/crud_admin", {});
+// Ensure that you have the correct MongoDB connection string.
+// Replace "your-connection-string" with your actual connection string.
 mongoose.connect(
   "mongodb+srv://kaosvioge:formentera1@chemys-admin-database.fz7jxky.mongodb.net/?retryWrites=true&w=majority",
-  {}
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    // Increase the timeout to allow for slower connections
+    serverSelectionTimeoutMS: 5000,
+  }
 );
 
 app.use("/api/auth", authRoutes);
