@@ -1,6 +1,7 @@
 // crud-admin/client/src/services/productService.js
 
-const API_BASE_URL = "http://localhost:5000/api/auth/products";
+// const API_BASE_URL = "http://localhost:5000/api/auth/products";
+const API_BASE_URL = "https://chemys-admin-api.onrender.com/api/auth/products";
 
 export const fetchProducts = async ({
   page,

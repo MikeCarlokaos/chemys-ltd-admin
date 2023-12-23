@@ -1,6 +1,7 @@
 // crud-admin/client/src/services/authService.js
 
-const apiUrl = "http://localhost:5000/api/auth";
+// const apiUrl = "http://localhost:5000/api/auth";
+const apiUrl = "https://chemys-admin-api.onrender.com/api/auth";
 
 export const login = async (username, password) => {
   try {

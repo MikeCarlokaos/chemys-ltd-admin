@@ -13,7 +13,11 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect("mongodb://localhost:27017/crud_admin", {});
+// mongoose.connect("mongodb://localhost:27017/crud_admin", {});
+mongoose.connect(
+  "mongodb+srv://kaosvioge:formentera1@chemys-admin-database.fz7jxky.mongodb.net/",
+  {}
+);
 
 app.use("/api/auth", authRoutes);
 app.use("/api/auth/products", productRoutes); // Include the product routes
