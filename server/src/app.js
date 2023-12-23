@@ -10,7 +10,7 @@ const shortageRoutes = require("./routes/shortages");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({ origin: "https://chemyslimiteddemo-admin.onrender.com" }));
 app.use(express.json());
 
 // mongoose.connect("mongodb://localhost:27017/crud_admin", {});
