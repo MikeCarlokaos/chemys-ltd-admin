@@ -29,14 +29,7 @@ const Sidebar = () => {
                 Dashboard
               </Link>
             </li>
-            <li>
-              <Link
-                to="/product"
-                className="text-white hover:bg-gray-700 px-3 py-2 rounded whitespace-nowrap"
-              >
-                Core Portfolio
-              </Link>
-            </li>
+
             <li>
               <Link
                 to="/shortage"

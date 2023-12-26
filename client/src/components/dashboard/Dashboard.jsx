@@ -2,18 +2,13 @@
 
 import React, { useState } from "react";
 import Sidebar from "../nav/Sidebar";
-import ProductTotal from "../common/ProductTotal";
-import ProductChart from "../common/ProductChart";
+
 import ShortageTotal from "../common/ShortageTotal";
 import ShortageChart from "../common/ShortageChart";
 
 function Dashboard() {
-  const [totalProducts, setTotalProducts] = useState(0);
   const [totalShortages, setTotalShortages] = useState(0);
 
-  const handleTotalProductsFetched = (total) => {
-    setTotalProducts(total);
-  };
   const handleTotalShortagesFetched = (total) => {
     setTotalShortages(total);
   };
@@ -31,13 +26,6 @@ function Dashboard() {
           </h2>
         </header>
         <main className="flex-1 overflow-x-hidden overflow-y-auto p-4 bg-gray-200 space-y-10">
-          <div className="p-5 bg-slate-100 border-2 border-gray-500">
-            <ProductTotal onTotalProductsFetched={handleTotalProductsFetched} />
-            <p className="text-gray-700">
-              Total products in inventory: <strong>{totalProducts}</strong>
-            </p>
-            <ProductChart />
-          </div>
           <div className="p-5 bg-slate-100 border-2 border-gray-500">
             <ShortageTotal
               onTotalShortagesFetched={handleTotalShortagesFetched}

@@ -4,7 +4,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const authRoutes = require("./routes/auth");
-const productRoutes = require("./routes/products");
 const shortageRoutes = require("./routes/shortages");
 
 const app = express();
@@ -33,7 +32,6 @@ mongoose.connect(
 );
 
 app.use("/api/auth", authRoutes);
-app.use("/api/auth/products", productRoutes);
 app.use("/api/auth/shortages", shortageRoutes);
 
 // Global error handling middleware

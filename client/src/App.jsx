@@ -5,7 +5,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import { isAuthenticated } from "./services/authService";
-import ProductList from "./components/product/ProductList";
 import ShortageList from "./components/shortage/ShortageList";
 
 function App() {
@@ -25,10 +24,7 @@ function App() {
           path="/dashboard"
           element={<PrivateRoute element={<Dashboard />} />}
         />
-        <Route
-          path="/product"
-          element={<PrivateRoute element={<ProductList />} />}
-        />
+
         <Route
           path="/shortage"
           element={<PrivateRoute element={<ShortageList />} />}
