@@ -3,12 +3,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../services/authService";
+import loginBg from "../../assets/images/admin-login-bg.png";
 
 function Login() {
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -21,6 +23,7 @@ function Login() {
 
   const handleLogin = async () => {
     try {
+      setLoading(true); // Set loading to true on login initiation
       const data = await login(credentials.username, credentials.password);
 
       if (data.success) {
@@ -34,11 +37,16 @@ function Login() {
       }
     } catch (error) {
       console.error("Error during login:", error);
+    } finally {
+      setLoading(false); // Set loading to false regardless of success or failure
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-400 to-purple-500">
+    <div
+      style={{ backgroundImage: `url(${loginBg})` }}
+      className="min-h-screen flex items-center justify-center bg-center"
+    >
       <div className="bg-white p-8 rounded-md shadow-md w-96">
         <h2 className="text-3xl font-semibold mb-4 text-center text-gray-800">
           Login
@@ -72,8 +80,9 @@ function Login() {
             type="button"
             className="bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-500"
             onClick={handleLogin}
+            disabled={loading} // Disable the button when loading
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
       </div>
