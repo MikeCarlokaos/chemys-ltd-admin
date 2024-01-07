@@ -78,11 +78,22 @@ function Login() {
           </label>
           <button
             type="button"
-            className="bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-500"
+            className={`bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-500 ${
+              loading ? "cursor-not-allowed" : "cursor-pointer"
+            }`}
             onClick={handleLogin}
-            disabled={loading} // Disable the button when loading
+            disabled={loading}
           >
-            {loading ? "Logging in..." : "Login"}
+            {loading ? (
+              <div className="flex items-center">
+                Logging in
+                <span class="h-1 w-1 mx-1.5 bg-white rounded-full animate-ping"></span>
+                <span class="h-1 w-1 mx-1.5 bg-white rounded-full animate-ping [animation-delay:0.3s]"></span>
+                <span class="h-1 w-1 mx-1.5 bg-white rounded-full animate-ping [animation-delay:0.7s]"></span>
+              </div>
+            ) : (
+              "Log in"
+            )}
           </button>
         </form>
       </div>
