@@ -85,7 +85,7 @@ function Login() {
             disabled={loading}
           >
             {loading ? (
-              <div className="flex items-center">
+              <div className="flex items-center justify-center">
                 Logging in
                 <span class="h-1 w-1 mx-1.5 bg-white rounded-full animate-ping"></span>
                 <span class="h-1 w-1 mx-1.5 bg-white rounded-full animate-ping [animation-delay:0.3s]"></span>
